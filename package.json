@@ -1,0 +1,27 @@
+{
+  "name": "clarity",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"yarn dev:backend\" \"cd frontend && yarn dev\"",
+    "dev:backend": "nodemon --watch backend -e ts --exec tsx backend/app.ts",
+    "build": "yarn build:backend && cd frontend && yarn build",
+    "start": "node dist/app.js",
+    "prisma": "npx prisma"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.5",
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "prisma": "^6.1.0",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
