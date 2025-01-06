@@ -25,8 +25,12 @@ router.post("/", async (req, res) => {
 // Delete a todo
 router.delete("/:id", async (req, res) => {
 	const { id } = req.params;
-	await prisma.todo.delete({ where: { id: Number(id) } });
-	res.status(204).send();
+	try {
+		await prisma.todo.delete({ where: { id: Number(id) } });
+		res.status(204).send();
+	} catch (error) {
+		res.status(404).send();
+	}
 });
 
 export default router;
