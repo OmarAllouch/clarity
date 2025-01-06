@@ -5,16 +5,12 @@ Clarity is a lightweight dashboard application for managing todos, notes, and re
 - A CLI tool for quick and efficient task management.
 - Notifications and reminders to keep you on track.
 
----
-
 ## Features
 
 - **Web Interface**: Manage todos, notes, and reminders visually.
 - **CLI Tool**: Perform CRUD operations on todos and notes via the command line.
 - **Reminders**: Set reminders for todos and notes, with notifications delivered via email or CLI alerts.
 - **Data Storage**: Lightweight storage using SQLite.
-
----
 
 ## Technologies Used
 
@@ -23,8 +19,6 @@ Clarity is a lightweight dashboard application for managing todos, notes, and re
 - **Database**: SQLite for lightweight, file-based storage.
 - **Scheduler**: Node.js with `node-schedule` for reminders.
 - **Notifications**: Nodemailer for email alerts.
-
----
 
 ## Installation
 
@@ -63,8 +57,6 @@ Clarity is a lightweight dashboard application for managing todos, notes, and re
    - **CLI**:
      Run commands directly from the `cli/` directory.
 
----
-
 ## Usage
 
 ### Web Interface
@@ -77,8 +69,6 @@ Run commands from the root directory:
 node cli add-todo "Finish the Clarity app"
 node cli list-todos
 ```
-
----
 
 ## Contributing
 
@@ -96,8 +86,6 @@ node cli list-todos
    git push origin feature/new-feature
    ```
 5. Open a Pull Request.
-
----
 
 ## License
 
