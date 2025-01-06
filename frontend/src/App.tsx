@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import NotesPage from "./pages/NotesPage";
 import TodoPage from "./pages/TodoPage";
@@ -14,6 +14,7 @@ const App: React.FC = () => {
         <Header />
         <main className="container mx-auto px-4 py-8">
           <Routes>
+            <Route path="/" element={<Navigate to="/todos" replace />} />
             <Route path="/todos" element={<TodoPage />} />
             <Route path="/notes" element={<NotesPage />} />
           </Routes>

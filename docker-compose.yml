@@ -1,0 +1,35 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./:/app
+    environment:
+      - NODE_ENV=development
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+
+  cli:
+    build:
+      context: ./cli
+      dockerfile: Dockerfile
+    volumes:
+      - ./cli:/app
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
