@@ -3,8 +3,12 @@ import todoRoutes from "./routes/todo";
 import noteRoutes from "./routes/note";
 import reminderRoutes from "./routes/reminder";
 import prisma from "./prisma";
+import cors from "cors";
 
 const app = express();
+
+// CORS
+app.use(cors());
 
 // Middleware
 app.use(express.json());
