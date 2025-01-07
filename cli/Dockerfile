@@ -1,4 +1,3 @@
-# Use a Node.js base image
 FROM node:23-alpine
 
 # Set working directory

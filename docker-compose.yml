@@ -29,6 +29,8 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./cli:/app
+    environment:
+      - API_BASE_URL=http://backend:4000/todos
     stdin_open: true
     tty: true
     depends_on:
