@@ -54,8 +54,11 @@ const App = () => {
 		if (isAdding) {
 			if (key.return) {
 				if (newTodo.trim()) addTodo(newTodo);
-			} else if (key.backspace) {
+			} else if (key.backspace || key.delete) {
 				setNewTodo((prev) => prev.slice(0, -1));
+			} else if (key.escape) {
+				setNewTodo("");
+				setIsAdding(false);
 			} else {
 				setNewTodo((prev) => prev + input);
 			}
@@ -67,10 +70,8 @@ const App = () => {
 		} else if (key.downArrow || input == "j") {
 			setSelectedIndex((prev) => Math.min(todos.length - 1, prev + 1));
 		} else if (key.return) {
-			fetchTodos().then(() => {
-				if (todos[selectedIndex])
-					deleteTodo(todos[selectedIndex].id);
-			});
+			if (todos[selectedIndex])
+				deleteTodo(todos[selectedIndex].id);
 		} else if (input === "a") {
 			setIsAdding(true);
 		} else if (input === "q") {
