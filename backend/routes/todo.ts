@@ -26,7 +26,16 @@ router.post("/", async (req, res) => {
 router.delete("/:id", async (req, res) => {
 	const { id } = req.params;
 	try {
-		await prisma.todo.delete({ where: { id: Number(id) } });
+		// check if todo exists
+		const todo = await prisma.todo.findUnique({
+			where: { id: Number(id) },
+		});
+		if (!todo) {
+			throw new Error("Todo not found");
+		}
+		await prisma.todo.delete({
+			where: { id: Number(id) },
+		});
 		res.status(204).send();
 	} catch (error) {
 		res.status(404).send();
